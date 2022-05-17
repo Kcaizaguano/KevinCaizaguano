@@ -53,5 +53,19 @@ public class SegundoActivity extends AppCompatActivity {
     }
 
 
+    public  void clicTercerActivity (View view) {
+
+        Intent intent  = new Intent(this,TercerActivity.class);
+        activityResult.launch(intent);
+    }
+
+    public  void  cerrar (View view){
+        Intent intent = new Intent();
+        intent.putExtra("lstDatos",lstDatosRecibidos);
+        setResult(Activity.RESULT_OK, intent);
+        finish();
+    }
+
+
 
 }

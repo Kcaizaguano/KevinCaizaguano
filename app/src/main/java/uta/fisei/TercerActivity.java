@@ -22,8 +22,35 @@ public class TercerActivity extends AppCompatActivity {
         editTextApellidos = findViewById(R.id.editTextTextApellidosTercer);
         editTextExponente = findViewById(R.id.editTextTextExponenteTercer);
         editTextNumeros =  findViewById(R.id.editTextTextNumero);
-
     }
+
+
+
+    public void cerrar (View view){
+
+        String apellidos = editTextApellidos.getText().toString();
+        String exponente = editTextExponente.getText().toString();
+        String numero = editTextNumeros.getText().toString();
+        String nombres = editTextNombres.getText().toString();
+        String base = editTextBase.getText().toString();
+
+        String[] lstDatos = new String[5];
+        lstDatos[0]= nombres;
+        lstDatos[1]=apellidos;
+        lstDatos[2]= base;
+        lstDatos[3]=exponente;
+        lstDatos[4]=numero;
+
+
+//PASAR DATOS HACIA ATRAS DE LA ACTIVIDAD
+        Intent intent = new Intent();
+        // intent.putExtra("apellidos",apellidos);
+        intent.putExtra("lstDatos",lstDatos);
+        setResult(Activity.RESULT_OK, intent);
+        finish();
+    }
+
+
 
 
 
