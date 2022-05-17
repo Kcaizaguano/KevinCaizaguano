@@ -25,10 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onActivityResult(ActivityResult result) {
 
-                    //procesasr los datos
                     if (result.getResultCode() == Activity.RESULT_OK)
                     {
-                        //obtener los datos regresados
                         Bundle datos = result.getData().getExtras();
                         lstDatosRecibidos = datos.getStringArray("lstDatos");
 
@@ -65,18 +63,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public  void  clicSegundoActivity (View view) {
-
         Intent intent = new Intent(this,SegundoActivity.class);
         activityResult.launch(intent);
     }
 
     public  void  mostrarDatos (View view){
-
         String base = lstDatosRecibidos[2].toString();
         String exponente = lstDatosRecibidos[3].toString();
         int numero =  Integer.valueOf(lstDatosRecibidos[4].toString());
         double pote = potencia(Double.valueOf(base), Double.valueOf(exponente));
-
 
         editTextFactorial.setText(String.valueOf(factorial(numero)));
         editTextPotencia.setText(String.valueOf(pote));
@@ -88,12 +83,10 @@ public class MainActivity extends AppCompatActivity {
             fact *= i;
         }
         return fact;
-
     }
 
     public  static  double potencia (double a, double b) {
         double resultado = 1;
-
         while (b != 0) {
             resultado = resultado * a;
             b--;

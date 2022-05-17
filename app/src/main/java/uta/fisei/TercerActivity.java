@@ -16,7 +16,6 @@ public class TercerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tercer);
-
         editTextNombres = findViewById(R.id.editTextTextMostrarNombresTercer);
         editTextBase = findViewById(R.id.editTextTextMostrarBaseTercer);
         editTextApellidos = findViewById(R.id.editTextTextApellidosTercer);
@@ -25,9 +24,7 @@ public class TercerActivity extends AppCompatActivity {
     }
 
 
-
     public void cerrar (View view){
-
         String apellidos = editTextApellidos.getText().toString();
         String exponente = editTextExponente.getText().toString();
         String numero = editTextNumeros.getText().toString();
@@ -41,10 +38,7 @@ public class TercerActivity extends AppCompatActivity {
         lstDatos[3]=exponente;
         lstDatos[4]=numero;
 
-
-//PASAR DATOS HACIA ATRAS DE LA ACTIVIDAD
         Intent intent = new Intent();
-        // intent.putExtra("apellidos",apellidos);
         intent.putExtra("lstDatos",lstDatos);
         setResult(Activity.RESULT_OK, intent);
         finish();

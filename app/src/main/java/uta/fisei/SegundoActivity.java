@@ -15,7 +15,6 @@ import android.widget.EditText;
 
 public class SegundoActivity extends AppCompatActivity {
 
-
     String[] lstDatosRecibidos;
     Button buttonCerrarS ;
 
@@ -23,12 +22,8 @@ public class SegundoActivity extends AppCompatActivity {
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-
-                    //procesasr los datos
                     if (result.getResultCode() == Activity.RESULT_OK)
                     {
-                        //obtener los datos regresados
-                        //Intent data = result.getData();
                         Bundle datos = result.getData().getExtras();
                         lstDatosRecibidos = datos.getStringArray("lstDatos");
                         editTextNombres.setText(lstDatosRecibidos[0].toString());
@@ -38,7 +33,6 @@ public class SegundoActivity extends AppCompatActivity {
                 }
             });
 
-
     EditText editTextNombres, editTextBase;
 
 
@@ -46,7 +40,6 @@ public class SegundoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segundo);
-
         editTextNombres = findViewById(R.id.editTextTextNombres);
         editTextBase = findViewById(R.id.editTextTextBase);
         buttonCerrarS = findViewById(R.id.buttonCerrarSegundo);
@@ -54,7 +47,6 @@ public class SegundoActivity extends AppCompatActivity {
 
 
     public  void clicTercerActivity (View view) {
-
         Intent intent  = new Intent(this,TercerActivity.class);
         activityResult.launch(intent);
     }
