@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     Button buttonMostrar ;
     EditText editTextNombres, editTextApellidos, editTextBase, editTextExponente, editTextFactorial, editTextPotencia;
 
-
     ActivityResultLauncher<Intent> activityResult =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                         editTextApellidos.setText(apellidos);
                         editTextBase.setText(base);
                         editTextExponente.setText(exponente);
-
                         buttonMostrar.setEnabled(true);
                     }
                 }
