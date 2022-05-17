@@ -19,6 +19,24 @@ public class SegundoActivity extends AppCompatActivity {
     String[] lstDatosRecibidos;
     Button buttonCerrarS ;
 
+    ActivityResultLauncher<Intent> activityResult =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+
+                    //procesasr los datos
+                    if (result.getResultCode() == Activity.RESULT_OK)
+                    {
+                        //obtener los datos regresados
+                        //Intent data = result.getData();
+                        Bundle datos = result.getData().getExtras();
+                        lstDatosRecibidos = datos.getStringArray("lstDatos");
+                        editTextNombres.setText(lstDatosRecibidos[0].toString());
+                        editTextBase.setText(lstDatosRecibidos[2].toString());
+                        buttonCerrarS.setEnabled(true);
+                    }
+                }
+            });
 
 
     EditText editTextNombres, editTextBase;
@@ -33,6 +51,7 @@ public class SegundoActivity extends AppCompatActivity {
         editTextBase = findViewById(R.id.editTextTextBase);
         buttonCerrarS = findViewById(R.id.buttonCerrarSegundo);
     }
+
 
 
 }

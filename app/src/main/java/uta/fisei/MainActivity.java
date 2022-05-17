@@ -15,7 +15,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-
     String[] lstDatosRecibidos;
     Button buttonMostrar ;
     EditText editTextNombres, editTextApellidos, editTextBase, editTextExponente, editTextFactorial, editTextPotencia;
@@ -32,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
                         //obtener los datos regresados
                         Bundle datos = result.getData().getExtras();
                         lstDatosRecibidos = datos.getStringArray("lstDatos");
+
+                        String nombres = lstDatosRecibidos[0].toString();
+                        String apellidos = lstDatosRecibidos[1].toString();
+                        String base = lstDatosRecibidos[2].toString();
+                        String exponente = lstDatosRecibidos[3].toString();
+
+                        editTextNombres.setText(nombres);
+                        editTextApellidos.setText(apellidos);
+                        editTextBase.setText(base);
+                        editTextExponente.setText(exponente);
+
                         buttonMostrar.setEnabled(true);
                     }
                 }
@@ -62,18 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
     public  void  mostrarDatos (View view){
 
-        String nombres = lstDatosRecibidos[0].toString();
-        String apellidos = lstDatosRecibidos[1].toString();
         String base = lstDatosRecibidos[2].toString();
         String exponente = lstDatosRecibidos[3].toString();
         int numero =  Integer.valueOf(lstDatosRecibidos[4].toString());
-
         double pote = potencia(Double.valueOf(base), Double.valueOf(exponente));
 
-        editTextNombres.setText(nombres);
-        editTextApellidos.setText(apellidos);
-        editTextBase.setText(base);
-        editTextExponente.setText(exponente);
+
         editTextFactorial.setText(String.valueOf(factorial(numero)));
         editTextPotencia.setText(String.valueOf(pote));
     }
@@ -83,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         for( int i = 1; i <= numero; i++ ) {
             fact *= i;
         }
-
         return fact;
 
     }
